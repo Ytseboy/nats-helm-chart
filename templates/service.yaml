@@ -5,4 +5,5 @@ metadata:
   labels: 
     component: {{ template "nats.fullname" .}}
   ports: 
-  - name: {{}}
+  - name: client
+    port: 4222
