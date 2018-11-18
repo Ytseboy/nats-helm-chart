@@ -1,0 +1,17 @@
+# Default values for nats.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+image:
+  registry: "docker.io"
+  repository: nats
+  tag: 1.3.0
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 4222
