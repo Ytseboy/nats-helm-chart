@@ -25,20 +25,19 @@ If release name contains chart name it will be used as a full name.
 {{- end -}}
 
 {{- define "nats.image" -}}
-    {{- $registryName := .Values.image.registry -}}
-    {{- $repositoryName := .Values.image.repository -}}
-    {{- $tag := .Values.image.tag | toString -}}
-    {{- if .Values.global }}
-        {{- if .Values.global.imageRegistry }}
-            {{- printf "%s/%s:%s" .Values.global.imageRegistry $repositoryName $tag -}}
-        {{- else -}}
-            {{- printf "%s/%s:%s" $registryName $repositoryName $tag -}}
-        {{- end -}}
+{{- $registryName := .Values.image.registry -}}
+{{- $repositoryName := .Values.image.repository -}}
+{{- $tag := .Values.image.tag | toString -}}
+{{- if .Values.global }}
+    {{- if .Values.global.imageRegistry }}
+        {{- printf "%s/%s:%s" .Values.global.imageRegistry $repositoryName $tag -}}
     {{- else -}}
         {{- printf "%s/%s:%s" $registryName $repositoryName $tag -}}
     {{- end -}}
+{{- else -}}
+    {{- printf "%s/%s:%s" $registryName $repositoryName $tag -}}
 {{- end -}}
-
+{{- end -}}
 
 {{/*
 Create chart name and version as used by the chart label.

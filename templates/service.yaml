@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ template "nats.fullname" . }}
   labels: 
-    app: {{ template "nats.name " . }}
+    app: "{{ template "nats.name" . }}"
     chart: {{template "nats.chart" . }}
     release: "{{ .Release.Name }}"
   ports: 
